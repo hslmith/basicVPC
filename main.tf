@@ -88,3 +88,13 @@ resource "ibm_is_instance" "web-instance" {
   user_data = "${data.local_file.cloud-config-web-txt.content}"
   //user_data = file("${path.module}/web_a.cfg")
 }
+
+#---------------------------------------------------------
+# Assign floating IPs To Webservers
+#---------------------------------------------------------
+
+resource "ibm_is_floating_ip" "vpc-a-webserver-zone1-fip" {
+  count   = "${var.server-count}"
+  name    = "${format(var.web-server-name-template-zone-1, count.index + 1)}-${var.zone1}-fip"
+  target  = "${element(ibm_is_instance.web-instance.*.primary_network_interface.0.id, count.index)}"
+}

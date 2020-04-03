@@ -76,3 +76,7 @@ variable "profile" {
   default = "cx2-2x4"
   description = "Instance profile to be used for virtual instances"
 }
+
+variable "web-server-name-template-zone-1" {
+  default = "server-1%03d"
+}
