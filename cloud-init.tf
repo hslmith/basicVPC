@@ -11,7 +11,9 @@ data "template_cloudinit_config" "cloud-init-config" {
   gzip            = false
   base64_encode   = false
 
-    filename      = "init.cfg"
-    content_type  = "text/cloud-config"
-    content       = "${data.local_file.cloud-config-web-txt.content}"
+  part {
+    filename = "init.cfg"
+    content_type = "text/cloud-config"
+    content = "${data.local_file.cloud-config-web-txt.content}"
   }
+}
