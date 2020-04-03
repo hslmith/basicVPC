@@ -1,9 +1,5 @@
 #cloud-config
 
-package_upgrade: true
-packages:
-  - nginx
-
 runcmd:
 - apt update
 - apt install nginx -y
