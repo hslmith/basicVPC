@@ -1,9 +1,9 @@
 resource "ibm_is_network_acl" "isBasicACL" {
-  name = "${var.vpc_name}-webserver-acl"
+  name = "${var.vpc-name}-webserver-acl"
   vpc  = "${ibm_is_vpc.vpc1.id}"
 
   rules {
-    name        = "${var.vpc_name}-outbound-all"
+    name        = "${var.vpc-name}-outbound-all"
     action      = "allow"
     source      = "0.0.0.0/0"
     destination = "0.0.0.0/0"
@@ -16,10 +16,10 @@ resource "ibm_is_network_acl" "isBasicACL" {
     }
   }
   rules {
-    name        = "${var.vpc_name}-inbound-web"
+    name        = "${var.vpc-name}-inbound-web"
     action      = "allow"
     source      = "0.0.0.0/0"
-    destination = "${var.address-prefix-vpc}"
+    destination = "${var.vpc-address-prefix}"
     direction   = "inbound"
     tcp {
       port_max        = 80
@@ -31,10 +31,10 @@ resource "ibm_is_network_acl" "isBasicACL" {
 
 
     rules {
-    name        = "${var.vpc_name}-inbound-ssh"
+    name        = "${var.vpc-name}-inbound-ssh"
     action      = "allow"
     source      = "0.0.0.0/0"
-    destination = "${var.address-prefix-vpc}"
+    destination = "${var.vpc-address-prefix}"
     direction   = "inbound"
     tcp {
       port_max        = 22

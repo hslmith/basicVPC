@@ -31,3 +31,15 @@ variable "vpc-address-prefix" {
 variable "az1-prefix" {
   default = "192.168.0.0/21"
   description = "CIDR block to be used for zone 1"
+
+
+
+
+  //////////////////
+// Define SSH Key
+//////////////////
+
+variable "ssh-key-name" {
+  default = "default"
+  description = "Name of existing VPC SSH Key"
+}
