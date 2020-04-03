@@ -1,4 +1,4 @@
-resource "ibm_is_network_acl" "isWebServerACL" {
+resource "ibm_is_network_acl" "isBasicACL" {
   name = "${var.vpc_name}-webserver-acl"
   vpc  = "${ibm_is_vpc.vpc1.id}"
 
