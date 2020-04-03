@@ -70,9 +70,9 @@ data "ibm_is_ssh_key" "sshkey1" {
 
 //--- Web Server(s)
 
-resource "ibm_is_instance" "web-instancez01" {
+resource "ibm_is_instance" "web-instance" {
   count   = "${var.server-count}"
-  name    = "web-kb01-${count.index+1}"
+  name    = "server-${count.index+1}"
   image   = "${var.image}"
   profile = "${var.profile}"
 
