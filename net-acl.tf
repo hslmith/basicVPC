@@ -52,8 +52,8 @@ resource "ibm_is_network_acl" "isBasicACL" {
     destination = "${var.vpc-address-prefix}"
     direction   = "inbound"
     tcp {
-      port_max        = 443
-      port_min        = 443
+      port_max        = 60000
+      port_min        = 1024
       source_port_max = 60000
       source_port_min = 22
     }
