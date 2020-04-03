@@ -4,7 +4,7 @@
 
 
 data "local_file" "cloud-config-web-txt" {
-  filename        = "web.txt"
+  filename        = "nginx.txt"
 }
 
 data "template_cloudinit_config" "cloud-init-config" {
