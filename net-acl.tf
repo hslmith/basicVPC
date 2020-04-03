@@ -44,4 +44,19 @@ resource "ibm_is_network_acl" "isBasicACL" {
     }
 
   }
+
+  rules {
+    name        = "${var.vpc-name}-inbound-443"
+    action      = "allow"
+    source      = "0.0.0.0/0"
+    destination = "${var.vpc-address-prefix}"
+    direction   = "inbound"
+    tcp {
+      port_max        = 443
+      port_min        = 443
+      source_port_max = 60000
+      source_port_min = 22
+    }
+
+  }
 }
