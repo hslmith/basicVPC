@@ -72,7 +72,7 @@ data "ibm_is_ssh_key" "sshkey1" {
 
 resource "ibm_is_instance" "web-instance" {
   count   = "${var.server-count}"
-  name    = "server-${count.index+1}"
+  name    = "${format(var.web-server-name-template-zone-1, count.index + 1)}"
   image   = "${var.image}"
   profile = "${var.profile}"
 
