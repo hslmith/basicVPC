@@ -57,7 +57,7 @@ variable "ssh-key-name" {
 //////////////////
 
 variable "resource_group" {
-  default = "default"
+  default = "Default"
 }
 
 variable "server-count" {
