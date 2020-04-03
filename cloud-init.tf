@@ -15,6 +15,3 @@ data "template_cloudinit_config" "cloud-init-config" {
     content_type  = "text/cloud-config"
     content       = "${data.local_file.cloud-config-web-txt.content}"
   }
-
-  }
-}
