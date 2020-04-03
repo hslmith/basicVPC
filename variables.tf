@@ -33,6 +33,14 @@ variable "az1-prefix" {
   description = "CIDR block to be used for zone 1"
 }
 
+
+//-- Define Subnets for zones
+
+
+variable "subnet-zone1" {
+  default = "192.168.0.0/24"
+}
+
 //////////////////
 // Define SSH Key
 //////////////////
